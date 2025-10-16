@@ -4,3 +4,4 @@ tinydb
 birdnetlib
 flask-cors
 librosa
+tensorflow
