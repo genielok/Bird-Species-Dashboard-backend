@@ -1,0 +1,4 @@
+scientific_name,common_name,start_time,end_time,date_time,geo_location,confidence,filename,project_id,model_version
+Arundinax aedon,Thick-billed Warbler,3.0,6.0,2025-10-10,"None, None",0.2666834592819214,sample.mp3,1234,2.4
+Acrocephalus stentoreus,Clamorous Reed Warbler,6.0,9.0,2025-10-10,"None, None",0.580899178981781,sample.mp3,1234,2.4
+Acrocephalus orientalis,Oriental Reed Warbler,6.0,9.0,2025-10-10,"None, None",0.27947530150413513,sample.mp3,1234,2.4

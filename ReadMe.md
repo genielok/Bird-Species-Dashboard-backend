@@ -1,0 +1,1 @@
+pip install birdnet (Python version <= 3.11)
