@@ -5,3 +5,4 @@ birdnetlib
 flask-cors
 librosa
 tensorflow
+python-multipart
