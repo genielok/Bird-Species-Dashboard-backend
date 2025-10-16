@@ -3,3 +3,4 @@ uvicorn
 tinydb
 birdnetlib
 flask-cors
+librosa
