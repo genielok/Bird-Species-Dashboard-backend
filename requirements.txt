@@ -6,3 +6,6 @@ flask-cors
 librosa
 tensorflow
 python-multipart
+boto3
+resampy
+
