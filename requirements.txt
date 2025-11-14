@@ -2,7 +2,6 @@ fastapi
 uvicorn
 tinydb
 birdnetlib
-flask-cors
 librosa
 tensorflow
 python-multipart

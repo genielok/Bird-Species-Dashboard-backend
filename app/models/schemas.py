@@ -21,3 +21,7 @@ class AnalysisRequest(BaseModel):
 class BatchAnalysisRequest(BaseModel):
     projectName: str
     s3_keys: List[str]
+
+
+class DownloadRequest(BaseModel):
+    s3_key: str

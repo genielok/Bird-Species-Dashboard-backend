@@ -1,10 +1,7 @@
 import boto3
 from fastapi import HTTPException
 from app.settings import AWS_DEFAULT_REGION, DYNAMODB_TABLE_NAME
-
-dynamodb = boto3.resource("dynamodb", region_name=AWS_DEFAULT_REGION)
-table = dynamodb.Table(DYNAMODB_TABLE_NAME)
-
+from app.db import table
 
 def get_all_detections():
     """Retrieve detection results from DynamoDB."""

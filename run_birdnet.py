@@ -18,7 +18,6 @@ OUTPUT_PREFIX = os.environ.get("S3_OUTPUT_PREFIX", "results/birdnet")
 PROJECT_NAME = os.environ.get("PROJECT_NAME", "unknown")
 os.environ["AUDIOMIXER_BACKEND"] = "ffmpeg"
 
-# ✅ 多文件版本：从 S3_INPUT_KEYS 读取多个 key
 INPUT_KEYS_JSON = os.environ.get("S3_INPUT_KEYS")
 if not INPUT_BUCKET or not INPUT_KEYS_JSON:
     print("FATAL: S3_BUCKET_NAME and S3_INPUT_KEYS must be set in environment.")
@@ -69,24 +68,18 @@ def process_single_file(key: str):
             )
 
         detections = []
+        print(recording.detections)
         for det in recording.detections:
-            detections.append(
-                {
-                    "id": str(uuid.uuid4()),
-                    "scientific_name": det["scientific_name"],
-                    "common_name": det["common_name"],
-                    "start_time": det["start_time"],
-                    "end_time": det["end_time"],
-                    "confidence": det["confidence"],
-                    "model_version": analyzer.version,
-                }
-            )
+            det['id'] = str(uuid.uuid4())
+            det['model_version'] = analyzer.version
+            det['source_s3_key'] = key
+            det['source_filename'] = local_filename
+            detections.append(det)
 
         result_json = {
             "source_bucket": INPUT_BUCKET,
             "source_key": key,
             "analysis_model": "BirdNET",
-            "analysis_timestamp": datetime.now().isoformat(),
             "total_detections": len(detections),
             "detections": detections,
         }
