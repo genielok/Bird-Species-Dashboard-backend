@@ -1,20 +1,21 @@
-pip install birdnet (Python version <= 3.11)
+# Backend — Acoustic Processing Tool
 
-## AWS
-### 1. Step function 
-BirdNetAnalysisWorkflow
-![alt text](image-1.png)
+This backend provides **bird sound analysis**, **audio preprocessing**, and **AWS Step Functions integration** for the Acoustic Processing Tool.  
+It uses **BirdNET**, **AWS ECS**, **Step Functions**, and **S3** to run large‑scale bird species detection workflows.
 
-### 2. debug
+---
+
+## 🐍 Installation
+
+### 1. Python Environment
+
+Ensure Python version **≤ 3.11**:
+
 ```bash
-aws logs describe-log-streams \                                                   
-  --log-group-name /ecs/birdnet-task-definition \
-  --order-by LastEventTime \                                                     
-  --descending \
-  --max-items 3
+pip install birdnet
+pip install -r requirements.txt
+uvicorn app.main:app --reload
 ```
-```bash
-aws logs get-log-events \
-  --log-group-name /ecs/birdnet-task-definition \
-  --log-stream-name <LogID>
- ````
+
+
+
